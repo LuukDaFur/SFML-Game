@@ -1,5 +1,3 @@
-Welcome to this test project, mostly for school purposes
+Welcome to this repository designed for a school project
 
-```
-Compared to other things this one's mostly made to be built on
-```
+Don't expect all that much from this, I'm just having fun
