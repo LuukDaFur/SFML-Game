@@ -1,5 +1,9 @@
 #include "Game.hpp"
 
+/*
+    This is the main executable for the game
+*/
+
 int main()
 {
     Game game;
