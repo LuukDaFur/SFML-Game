@@ -27,6 +27,14 @@ Game::~Game()
 }
 
 //Functions
+void Game::updateDt()
+{
+    /*
+        Updates the DeltaTime Variable (dt) with the time it took to update and render one frame
+    */
+    this -> dt = this -> dtClock.restart().asSeconds();
+}
+
 void Game::updateSFMLEvents()
 {
         while (this -> window -> pollEvent(this -> sfEvent))
@@ -55,8 +63,9 @@ void Game::run()
 {
         while (this -> window -> isOpen())
     {
-        this->update();
-        this->render();
+        this -> updateDt();
+        this -> update();
+        this -> render();
     }
 
 }
