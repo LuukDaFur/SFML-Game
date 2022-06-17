@@ -9,6 +9,8 @@ void Game::initWindow()
     //Window with a size of 200, 200
     //Will make options available in a text file
     this -> window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
+    this->window->setFramerateLimit(60);
+    this->window->setVerticalSyncEnabled(false);
 }
 
 //Constructors / Destructors
