@@ -8,9 +8,27 @@ void Game::initWindow()
 {
     //Window with a size of 200, 200
     //Will make options available in a text file
-    this -> window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
-    this->window->setFramerateLimit(60);
-    this->window->setVerticalSyncEnabled(false);
+
+    std::ifstream ifs("config/window.ini");
+
+    std::string title = "none";
+    sf::VideoMode window_bounds(800,600);
+    unsigned framerate_limit = 60;
+    bool vertical_sync_enabled = false;
+
+    if (ifs.is_open())
+    {
+        std::getline(ifs, title);
+        ifs >> window_bounds.width >> window_bounds.height;
+        ifs >> framerate_limit;
+        ifs >> vertical_sync_enabled;
+    }
+
+    ifs.close();
+
+    this -> window = new sf::RenderWindow(window_bounds, title);
+    this->window->setFramerateLimit(framerate_limit);
+    this->window->setVerticalSyncEnabled(vertical_sync_enabled);
 }
 
 //Constructors / Destructors

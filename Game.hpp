@@ -1,6 +1,6 @@
 #pragma once
 
-#include "State.hpp"
+#include "States/State.hpp"
 
 class Game
 {   
