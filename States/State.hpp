@@ -6,6 +6,9 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include <vector>
+#include <stack>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -16,12 +19,16 @@
 class State
 {
 private:
+    sf::RenderWindow* window;
     std::vector<sf::Texture> textures;
 
 public:
-    State();
+    State(sf::RenderWindow* window);
     virtual ~State();
 
-    virtual void update() = 0;
-    virtual void render() = 0;
+    //Close the state (probably just amounts to closing the game)
+    virtual void endState() = 0;
+
+    virtual void update(const float& dt) = 0;
+    virtual void render(sf::RenderTarget* target = nullptr) = 0;
 };

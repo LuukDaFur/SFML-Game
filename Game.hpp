@@ -1,6 +1,6 @@
 #pragma once
 
-#include "States/State.hpp"
+#include "States/GameState.hpp"
 
 class Game
 {   
@@ -12,8 +12,11 @@ class Game
         sf::Clock dtClock;
         float dt;
 
+        std::stack<State*> states;
+
         //Initialization functions
         void initWindow();
+        void initStates();
 
     public:
         //Constructor / Destructor
@@ -23,7 +26,7 @@ class Game
         //Functions
         void updateDt();
         void updateSFMLEvents();
-        void update();
-        void render();
+        void update(const float& dt);
+        void render(sf::RenderTarget* target);
         void run();
 };
