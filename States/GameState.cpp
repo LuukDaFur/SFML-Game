@@ -18,7 +18,7 @@ void GameState::endState()
 
 void GameState::update(const float& dt)
 {
-
+    std::cout << "Hello From GameState!" << "\n";
 }
 
 void GameState::render(sf::RenderTarget* target)
