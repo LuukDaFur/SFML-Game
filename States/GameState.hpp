@@ -14,7 +14,7 @@ class GameState :
     //functions
     void endState();
 
-
+    void updateKeyBinds(const float& dt);
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
 };
