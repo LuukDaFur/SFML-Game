@@ -11,6 +11,7 @@
                 "Game.cpp",
                 "States/GameState.cpp",
                 "States/State.cpp",
+                "Entities/Entity.cpp",
                 "-o",
                 "RPG",
                 "-lsfml-audio",
