@@ -23,4 +23,3 @@ void State::checkForQuit()
         this -> quit = true;
     }
 }
-

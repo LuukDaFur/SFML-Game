@@ -24,9 +24,18 @@ class Game
         virtual ~Game();
 
         //Functions
+
+        //regular
+        void endApplication();
+
+        //update        
         void updateDt();
         void updateSFMLEvents();
         void update(const float& dt);
+        
+        //render
         void render(sf::RenderTarget* target);
+        
+        //core
         void run();
 };

@@ -57,7 +57,14 @@ Game::~Game()
     }
 }
 
-//Functions
+/*
+    Functions
+*/
+void Game::endApplication()
+{
+    std::cout << "Ending Application!\n";
+}
+
 void Game::updateDt()
 {
     /*
@@ -80,9 +87,24 @@ void Game::update(const float& dt)
 {
     this -> updateSFMLEvents();
 
-        if (!this->states.empty()){
-        this ->states.top()->update( this -> dt);
-    }
+        if (!this->states.empty())
+        {
+            this ->states.top()->update( this -> dt);
+
+            if(this->states.top()->getQuit())
+            {
+                this->states.top()->endState();
+                delete this-> states.top();
+                this -> states.pop();
+            }
+        } 
+        
+        //Game end
+        else 
+        {   
+            this -> endApplication();
+            this -> window->close();
+        }
 }
 
 void Game::render(sf::RenderTarget* target = nullptr)
@@ -99,7 +121,7 @@ void Game::render(sf::RenderTarget* target = nullptr)
 
 void Game::run()
 {
-        while (this -> window -> isOpen())
+    while (this-> window -> isOpen())
     {
         this -> updateDt();
         this -> update(this -> dt);

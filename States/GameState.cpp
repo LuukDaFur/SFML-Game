@@ -11,6 +11,11 @@ GameState::~GameState()
 
 }
 
+void GameState::endState()
+{
+    std::cout << "Ending Game State\n";
+}
+
 void GameState::updateKeyBinds(const float& dt)
 {
     this -> checkForQuit();
