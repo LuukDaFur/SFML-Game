@@ -5,9 +5,11 @@
 class State
 {
 private:
-    sf::RenderWindow* window;
     std::vector<sf::Texture> textures;
     bool quit;
+
+protected:
+    sf::RenderWindow* window;
 
 public:
     State(sf::RenderWindow* window);
@@ -19,7 +21,7 @@ public:
     virtual void checkForQuit();
 
     virtual void endState() = 0;
-    virtual void updateKeyBinds(const float& dt) = 0;
+    virtual void updateInput(const float& dt) = 0;
     virtual void update(const float& dt) = 0;
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
 };

@@ -16,18 +16,40 @@ void GameState::endState()
     std::cout << "Ending Game State\n";
 }
 
-void GameState::updateKeyBinds(const float& dt)
+void GameState::updateInput(const float& dt)
 {
     this -> checkForQuit();
+
+    //PlayerInput
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        this -> player.move(dt, 0.f, -1.f);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        this -> player.move(dt, -1.f, 0.f);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        this -> player.move(dt, 0.f, 1.f);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        this -> player.move(dt, 1.f, 0.f);
+    }
 }
 
 void GameState::update(const float& dt)
 {
-    this -> updateKeyBinds(dt);
+    this -> updateInput(dt);
     this->player.update(dt);
 }
 
 void GameState::render(sf::RenderTarget* target)
 {
+    if(!target)
+    {
+        target = this -> window;
+    }
     this->player.render(target);
 }

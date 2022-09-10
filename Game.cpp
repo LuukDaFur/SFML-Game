@@ -36,6 +36,14 @@ void Game::initStates()
     this->states.push(new GameState(this->window));
 }
 
+void Game::initKeys()
+{
+    this -> supportedKeys.emplace("W", sf::Keyboard::Key::W);
+    this -> supportedKeys.emplace("A", sf::Keyboard::Key::A);
+    this -> supportedKeys.emplace("S", sf::Keyboard::Key::S);
+    this -> supportedKeys.emplace("D", sf::Keyboard::Key::D);
+}
+
 //Constructors / Destructors
 //Constructor for creating the engine
 Game::Game()
@@ -43,6 +51,7 @@ Game::Game()
     //Creates the window
     this -> initWindow();
     this -> initStates();
+    this -> initKeys();
 }
 
 //Destructor for closing the game
