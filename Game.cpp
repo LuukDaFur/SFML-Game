@@ -9,7 +9,7 @@ void Game::initWindow()
     //Window with a size of 200, 200
     //Will make options available in a text file
 
-    std::ifstream ifs("config/window.ini");
+    std::ifstream ifs("Config/window.ini");
 
     std::string title = "none";
     sf::VideoMode window_bounds(800,600);
@@ -33,11 +33,28 @@ void Game::initWindow()
 
 void Game::initKeys()
 {
-    this -> supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
-    this -> supportedKeys.emplace("W", sf::Keyboard::Key::W);
-    this -> supportedKeys.emplace("A", sf::Keyboard::Key::A);
-    this -> supportedKeys.emplace("S", sf::Keyboard::Key::S);
-    this -> supportedKeys.emplace("D", sf::Keyboard::Key::D);
+    std::ifstream ifs("Config/controls.ini");
+    if (ifs.is_open())
+    {
+        std::string key = "";
+        int keyValue = 0;
+        while (ifs >> key >> keyValue)
+        {
+            this -> supportedKeys[key] = keyValue;
+        }
+    }
+    ifs.close();
+/*
+    
+    this -> supportedKeys["W"] = sf::Keyboard::Key::W;
+    this -> supportedKeys["A"] = sf::Keyboard::Key::A;
+    this -> supportedKeys["S"] = sf::Keyboard::Key::S;
+    this -> supportedKeys["D"] = sf::Keyboard::Key::D;
+*/
+    for (auto i : this -> supportedKeys)
+    {
+        std::cout << i.first << " " << i.second << "\n";
+    }
 }
 
 void Game::initStates()
