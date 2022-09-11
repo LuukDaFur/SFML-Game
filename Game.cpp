@@ -44,13 +44,7 @@ void Game::initKeys()
         }
     }
     ifs.close();
-/*
-    
-    this -> supportedKeys["W"] = sf::Keyboard::Key::W;
-    this -> supportedKeys["A"] = sf::Keyboard::Key::A;
-    this -> supportedKeys["S"] = sf::Keyboard::Key::S;
-    this -> supportedKeys["D"] = sf::Keyboard::Key::D;
-*/
+
     for (auto i : this -> supportedKeys)
     {
         std::cout << i.first << " " << i.second << "\n";
