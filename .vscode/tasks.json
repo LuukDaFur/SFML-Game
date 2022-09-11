@@ -12,6 +12,8 @@
                 "States/GameState.cpp",
                 "States/State.cpp",
                 "Entities/Entity.cpp",
+                "States/MainMenuState.cpp",
+                "Resources/Button.cpp",
                 "-o",
                 "RPG",
                 "-lsfml-audio",

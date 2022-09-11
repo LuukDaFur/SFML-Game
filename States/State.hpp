@@ -12,6 +12,10 @@ protected:
     std::map<std::string, int>* supportedKeys;
     std::map<std::string, int> keybinds;
 
+    sf::Vector2i mousePosScreen;
+    sf::Vector2i mousePosWindow;
+    sf::Vector2f mousePosView;
+
     //resources
     std::vector<sf::Texture> textures;
 
@@ -28,6 +32,8 @@ public:
     virtual void checkForQuit();
 
     virtual void endState() = 0;
+
+    virtual void updateMousePositions();
     virtual void updateInput(const float& dt) = 0;
     virtual void update(const float& dt) = 0;
     virtual void render(sf::RenderTarget* target = nullptr) = 0;

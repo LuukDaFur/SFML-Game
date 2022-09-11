@@ -1,6 +1,6 @@
 #pragma once
 
-#include "States/GameState.hpp"
+#include "States/MainMenuState.hpp"
 
 class Game
 {   

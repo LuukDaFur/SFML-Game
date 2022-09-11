@@ -44,16 +44,11 @@ void Game::initKeys()
         }
     }
     ifs.close();
-
-    for (auto i : this -> supportedKeys)
-    {
-        std::cout << i.first << " " << i.second << "\n";
-    }
 }
 
 void Game::initStates()
 {
-    this->states.push(new GameState(this->window, &this -> supportedKeys));
+    this->states.push(new MainMenuState(this->window, &this -> supportedKeys));
 }
 
 //Constructors / Destructors
