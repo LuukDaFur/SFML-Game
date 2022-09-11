@@ -33,7 +33,7 @@ void Game::initWindow()
 
 void Game::initKeys()
 {
-    std::ifstream ifs("Config/controls.ini");
+    std::ifstream ifs("Config/supportedKeys.ini");
     if (ifs.is_open())
     {
         std::string key = "";
