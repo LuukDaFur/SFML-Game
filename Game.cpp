@@ -31,17 +31,18 @@ void Game::initWindow()
     this->window->setVerticalSyncEnabled(vertical_sync_enabled);
 }
 
-void Game::initStates()
-{
-    this->states.push(new GameState(this->window));
-}
-
 void Game::initKeys()
 {
+    this -> supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
     this -> supportedKeys.emplace("W", sf::Keyboard::Key::W);
     this -> supportedKeys.emplace("A", sf::Keyboard::Key::A);
     this -> supportedKeys.emplace("S", sf::Keyboard::Key::S);
     this -> supportedKeys.emplace("D", sf::Keyboard::Key::D);
+}
+
+void Game::initStates()
+{
+    this->states.push(new GameState(this->window, &this -> supportedKeys));
 }
 
 //Constructors / Destructors
@@ -50,8 +51,8 @@ Game::Game()
 {
     //Creates the window
     this -> initWindow();
-    this -> initStates();
     this -> initKeys();
+    this -> initStates();
 }
 
 //Destructor for closing the game

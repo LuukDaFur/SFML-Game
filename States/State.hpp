@@ -5,14 +5,21 @@
 class State
 {
 private:
-    std::vector<sf::Texture> textures;
     bool quit;
 
 protected:
     sf::RenderWindow* window;
+    std::map<std::string, int>* supportedKeys;
+    std::map<std::string, int> keybinds;
+
+    //resources
+    std::vector<sf::Texture> textures;
+
+    //functions
+    virtual void initKeybinds() = 0;
 
 public:
-    State(sf::RenderWindow* window);
+    State(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys);
     virtual ~State();
 
     const bool& getQuit() const;

@@ -18,8 +18,8 @@ class Game
 
         //Initialization functions
         void initWindow();
-        void initStates();
         void initKeys();
+        void initStates();
 
     public:
         //Constructor / Destructor
